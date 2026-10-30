@@ -44,6 +44,10 @@ python demo.py --model mecavm --mode backward
 
 The default demonstration uses a smaller `(64, 64, 64)` volume and `feature_size=12` to reduce resource requirements. It returns three tensors of shape `(1, 4, 64, 64, 64)`. This is an execution check, not a reconstruction-quality or memory benchmark. Use `--device cuda` when CUDA is available.
 
+The `backward` example freezes the image encoders and decoder and updates the two feature transformers, following the research implementation's stage-2 freeze policy. Its synthetic inputs and MSE targets are only for checking gradient flow; they are not a training dataset or the complete training protocol.
+
+Run the small causality and token-gradient checks with `python -m unittest -v test_core`.
+
 The research architecture defaults are `(192, 192, 128)`, `feature_size=24`, and Swin depths `(2, 2, 2, 2)`:
 
 ```python

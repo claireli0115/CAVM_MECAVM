@@ -1,0 +1,12 @@
+Llama 2 is licensed under the LLAMA 2 Community License,
+Copyright (c) Meta Platforms, Inc. All Rights Reserved.
+
+cavm/transformer.py is adapted from the research project's Meta Llama 2-derived
+feature transformer. See licenses/LLAMA2-LICENSE.txt and
+https://ai.meta.com/llama/use-policy/.
+
+cavm/token_swin.py contains MONAI-derived code.
+Copyright (c) MONAI Consortium. Licensed under Apache License 2.0.
+See licenses/Apache-2.0.txt.
+
+Modifications made for this release are described in PROVENANCE.md.
