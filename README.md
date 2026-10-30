@@ -54,10 +54,19 @@ The research architecture defaults are `(192, 192, 128)`, `feature_size=24`, and
 from cavm import CAVM, MECAVM
 
 cavm = CAVM()
-mecavm = MECAVM(prefix_ratio=0.5)
+mecavm = MECAVM(prefix_ratio=0.1)
 ```
 
-This core implementation supports batch size 1, four input/output channels, and three stages. Spatial dimensions must be multiples of 32 and at least 64; the stage-3 feature packing must also divide evenly into groups of four. The reduced demo settings are not the paper's experimental configuration. `prefix_ratio=0.5` is an explicit demonstration setting, not a claim about every reported experiment. Full-resolution execution can require substantial memory.
+The submitted manuscript specifies **active ratio `rho = 0.1` for all main ME-CAVM experiments**, excluding sensitivity analysis. This corresponds to `prefix_ratio=0.1` in the code and is the default in both `MECAVM()` and `demo.py`. The sensitivity analysis evaluates `rho` in `{1.0, 0.7, 0.5, 0.2, 0.1}`; `0.5` is a sensitivity setting rather than the main-experiment default. The same ratio is used during pretraining and finetuning.
+
+| Parameter | Submitted manuscript / model defaults | Synthetic demo defaults |
+| --- | --- | --- |
+| Active ratio (`prefix_ratio`) | `0.1` | `0.1` |
+| Input spatial size | `(192, 192, 128)` | `(64, 64, 64)` |
+| Feature size | `24` (transformer dimensions `384` and `768`) | `12` (smaller execution check) |
+| Batch size | `1` | `1` |
+
+This core implementation supports batch size 1, four input/output channels, and three stages. Spatial dimensions must be multiples of 32 and at least 64; the stage-3 feature packing must also divide evenly into groups of four. The reduced demo size and width are not the paper's experimental configuration. Its Adam example uses `lr=1e-4` and `betas=(0.9, 0.99)` as specified in the manuscript, but does not implement the complete training protocol. Full-resolution execution can require substantial memory.
 
 ## Provenance and verification
 

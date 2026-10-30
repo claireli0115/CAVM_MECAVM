@@ -21,6 +21,8 @@ Packaging changes:
 
 Source SHA-256 hashes (for traceability, not a numerical equivalence guarantee):
 
+The release default `prefix_ratio=0.1` was checked against the final JBHI submission (`CAVM_JBHI.pdf` and `main.tex` in `CAVM_JBHI.zip`, submitted July 2026). The Implementation Details states that all ME-CAVM experiments use `rho=0.1` except the sensitivity analysis; the Sensitivity Analysis section also identifies `rho=0.1` as the default. The synthetic Adam example uses the stated betas `(0.9, 0.99)`. These checks align the exposed settings, rather than asserting complete numerical reproducibility of the release.
+
 - `models/swin_unetr_llama_3/swin_unetr.py`: `6153cecb7ffab160d669920dcf8b850107cbb81fc257a3e28c3f0dadc12f60b7`
 - `models/swin_unetr_llama_3/llama/model.py`: `b708d12111170bc02fc797147470254b6ebf52b3ac0872a72f8126e9fb76a40e`
 - `models/only_fce_tokentune_llama_3/tokentune/me_swin_unetr.py`: `f52e86abcc6925ca79264a11e3d08d97345f1510ebc69f843fc7c3b1fee7e4df`

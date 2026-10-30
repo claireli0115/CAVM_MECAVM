@@ -14,7 +14,7 @@ def main():
     parser.add_argument("--device", default="cpu")
     parser.add_argument("--size", nargs=3, type=int, default=[64, 64, 64])
     parser.add_argument("--feature-size", type=int, default=12)
-    parser.add_argument("--prefix-ratio", type=float, default=0.5)
+    parser.add_argument("--prefix-ratio", type=float, default=0.1)
     args = parser.parse_args()
     torch.manual_seed(0)
     torch.set_num_threads(4)
@@ -36,7 +36,7 @@ def main():
         model.model_llamalike3.requires_grad_(True)
         model.model_llamalike4.requires_grad_(True)
         optimizer = torch.optim.Adam(
-            (p for p in model.parameters() if p.requires_grad), lr=1e-4
+            (p for p in model.parameters() if p.requires_grad), lr=1e-4, betas=(0.9, 0.99)
         )
         targets = [torch.randn_like(x) for _ in range(3)]
         _, _, outputs = model([x, x, x], x)

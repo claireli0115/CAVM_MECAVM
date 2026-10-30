@@ -1,6 +1,6 @@
 # Verification
 
-Verified locally on 2026-10-30 with Windows, Python 3.12.14, PyTorch 2.6.0+cpu, MONAI 1.3.2, NumPy 1.26.4, and einops 0.8.1.
+Verified locally on 2026-10-30 with Windows, Python 3.12.14, PyTorch 2.6.0+cpu, MONAI 1.3.2, NumPy 1.26.4, and einops 0.8.1. ME-CAVM defaults were subsequently corrected to `prefix_ratio=0.1` against the final submitted manuscript, and its generation and backward demos were rerun at that ratio. The backward demo uses manuscript Adam betas `(0.9, 0.99)`.
 
 | Command | Result |
 | --- | --- |

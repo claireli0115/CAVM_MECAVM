@@ -9,7 +9,7 @@ class MECAVM(CAVM):
     """Replace only the FCE Swin encoder, as in the research implementation."""
 
     def __init__(
-        self, img_size=(192, 192, 128), prefix_ratio=0.5, feature_size=24, **kwargs
+        self, img_size=(192, 192, 128), prefix_ratio=0.1, feature_size=24, **kwargs
     ):
         if not 0 < prefix_ratio <= 1:
             raise ValueError("prefix_ratio must lie in (0, 1].")
